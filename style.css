@@ -3,6 +3,10 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        body{
+            padding: 100px 0;
+        }
 
         /* Progress bar styles */
         .progress-container {
@@ -19,7 +23,6 @@
         }
         
         .progress-bar-container {
-            position: absolute;
             width: 100%;
             height: 8px;
             background: #FDF8F7;
@@ -54,6 +57,7 @@
             color: #7D5C4E;
             font-family: 'Source Sans Pro', sans-serif;
             display: block;
+            padding-bottom: 20px;
         }
 
         .form-section {
@@ -77,39 +81,59 @@
 
         .slide {
             min-width: 100%;
+            height: 400px;
             box-sizing: border-box;
-            text-align: center;
-            padding: 80px 0;
+            padding: 24px;
+            background-image: url(./project/survey-form-bg-img.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
-        .label-and-input-sec {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            margin: 0 auto;
-            row-gap: 20px;
-            max-width: 450px;
+        .form-field-image {
+            height: 100%;
+            column-gap: 20px;
+            display: flex;  
+            align-items: center;
+            justify-content: space-around;
         }
+
+        .form-field{
+            width: 50%;
+        }
+
+        .form-image{
+            position: relative; 
+            width: 350px;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .form-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } 
 
         .radio-btn-label {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             column-gap: 10px;
+            margin-bottom: 10px;
         }
 
         .buttons {
-            max-width: 1280px;
             width: 100%;
-            height: 50px;
+            max-width: 1280px;
             display: flex;
             justify-content: space-between;
             column-gap: 20px;
             position: relative;
             margin: 0 auto;
+            padding: 0 80px;
         }
-
+        
         .prev-btn {
             position: absolute;
             left: 0px;
@@ -186,16 +210,9 @@
             transform: translate(-50%, -50%);
         }
         
-        /* Message styles */
-        .msg-box{
-            position: relative;
-        }
+        /* Message styles */ 
 
         .message-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
             margin-top: 20px;
             padding: 15px;
             border-radius: 5px;
@@ -230,7 +247,35 @@
             }
  
             .slide {
-                padding: 40px 24px;
+                padding: 24px;
+            }
+
+            .progress-container {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto 30px;
+                position: relative;
+                padding: 0 20px;;
+            }
+
+            .form-field-image {
+                display: flex;  
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column-reverse;
+            }
+
+            .form-field{
+                width: 100%;
+            }
+
+            .form-image{
+                position: relative; 
+                width: 200px;
+                height: 200px;
+                row-gap: 20px;
+                border-radius: 8px;
+                overflow: hidden;
             }
 
             .buttons {
