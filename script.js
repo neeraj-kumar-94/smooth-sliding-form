@@ -12,14 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressBarContainer = document.createElement("div");
     progressBarContainer.style.width = "100%";
     progressBarContainer.style.height = "5px";
-    progressBarContainer.style.background = "#ccc";
+    progressBarContainer.style.background = "#FDF8F7";
     progressBarContainer.style.position = "relative";
     progressBarContainer.style.marginBottom = "10px";
 
     const progressBar = document.createElement("div");
     progressBar.style.height = "100%";
     progressBar.style.width = "0%";
-    progressBar.style.background = "#4CAF50";
+    progressBar.style.background = "#5D3E31";
     progressBar.style.transition = "width 0.3s ease-in-out";
 
     progressBarContainer.appendChild(progressBar);
