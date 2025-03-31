@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey form</title>
-    <!-- Link css file -->
     <style>
         * {
             margin: 0;
@@ -13,7 +12,46 @@
             box-sizing: border-box;
         }
 
-        /*  */
+        /* Progress bar styles */
+        .progress-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto 30px;
+        }
+        
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #FDF8F7;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #5D3E31;
+            transition: width 0.3s ease-in-out;
+        }
+        
+        .progress-step {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #7D5C4E;
+            font-weight: 600;
+        }
+        
+        .progress-step.active {
+            color: #5D3E31;
+            font-weight: 700;
+        }
+
+        /* Form styles */
         .lable-style {
             font-size: 24px;
             line-height: 30px;
@@ -23,7 +61,6 @@
             font-family: 'Source Sans Pro', sans-serif;
             display: block;
         }
-
 
         .form-section {
             padding: 80px;
@@ -38,26 +75,6 @@
             position: relative;
             padding-top: 10px;
         }
-
-        /* progressbar */
-        .progress-bar-container {
-            position: fixed;
-            width: 100%;
-            height: 5px;
-            background: #ccc;
-            position: relative;
-            margin-bottom: 10px;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: #4CAF50;
-            transition: width 0.3s ease-in-out;
-        }
-
 
         .slides {
             display: flex;
@@ -89,14 +106,14 @@
         }
 
         .buttons {
-            width: 300px;
+            max-width: 1280px;
+            width: 100%;
             height: 50px;
             display: flex;
             justify-content: space-between;
             column-gap: 20px;
-            margin-top: 10px;
             position: relative;
-
+            margin: 0 auto;
         }
 
         .prev-btn {
@@ -108,7 +125,6 @@
             position: absolute;
             left: 140px;
         }
-
 
         .form-btns {
             height: auto;
@@ -164,7 +180,6 @@
             white-space: nowrap;
         }
 
-        /* Style the radio button when it is checked */
         input[type="radio"]:checked::before {
             content: '';
             width: 12px;
@@ -175,6 +190,35 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+        
+        /* Message styles */
+        .message-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-message {
+            background-color: #FFEBEE;
+            color: #C62828;
+            border: 1px solid #EF9A9A;
+        }
+        
+        .success-message {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid #A5D6A7;
+        }
+        
+        .loading-message {
+            background-color: #E3F2FD;
+            color: #1565C0;
+            border: 1px solid #90CAF9;
         }
 
         @media (max-width: 768px) {
@@ -187,28 +231,40 @@
             }
 
             .buttons {
-                width: 250px;
-                display: flex;
-                justify-content: space-between;
-                column-gap: 20px;
-                margin-top: 10px;
-                padding-left: 24px;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 
 <body>
-
     <div class="form-section">
         <div class="form-inner-section">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-labels">
+                    <span class="progress-step active">Name</span>
+                    <span class="progress-step">Email</span>
+                    <span class="progress-step">Phone</span>
+                    <span class="progress-step">Message</span>
+                    <span class="progress-step">Gender</span>
+                    <span class="progress-step">Submit</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+            
+            <!-- Message Container -->
+            <div id="form-message" class="message-container"></div>
+            
+            <!-- Form -->
             <form id="contactForm">
                 <div class="slides">
                     <div class="slide">
                         <div class="label-and-input-sec">
                             <label class="lable-style" for="full-name">Name:</label>
-                            <input type="text" id="full-name" class="inp-style" name="full-name" placeholder="Name"
-                                required>
+                            <input type="text" id="full-name" class="inp-style" name="full-name" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="slide">
@@ -247,20 +303,19 @@
                     </div>
                 </div>
             </form>
-            <!-- Next and Previous buttons -->
-            <div class="buttons">
-                <div class="prev-btn">
-                    <button class="form-btns" id="prevBtn" onclick="prevSlide()"
-                        style="display: none;">Previous</button>
-                </div>
-                <div class="next-btn">
-                    <button class="form-btns" id="nextBtn" onclick="nextSlide()">Next</button>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Link js file -->
+    <!-- Next and Previous buttons -->
+    <div class="buttons">
+        <div class="prev-btn">
+            <button class="form-btns" id="prevBtn" onclick="prevSlide()" style="display: none;">Previous</button>
+        </div>
+        <div class="next-btn">
+            <button class="form-btns" id="nextBtn" onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             let currentIndex = 0;
@@ -270,41 +325,69 @@
             const nextBtn = document.getElementById("nextBtn");
             const form = document.getElementById("contactForm");
             const submitBtn = form.querySelector("button[type='submit']");
-            let isSubmitting = false; // Prevent multiple submissions
-
-            // Create a progress bar
-            const progressBarContainer = document.createElement("div");
-            progressBarContainer.style.width = "100%";
-            progressBarContainer.style.height = "5px";
-            progressBarContainer.style.background = "#FDF8F7";
-            progressBarContainer.style.position = "relative";
-            progressBarContainer.style.marginBottom = "10px";
-
-            const progressBar = document.createElement("div");
-            progressBar.style.height = "100%";
-            progressBar.style.width = "0%";
-            progressBar.style.background = "#5D3E31";
-            progressBar.style.transition = "width 0.3s ease-in-out";
-
-            progressBarContainer.appendChild(progressBar);
-            form.parentNode.insertBefore(progressBarContainer, form);
-
-            // Create a message container
-            const messageContainer = document.createElement("div");
-            messageContainer.id = "form-message";
-            messageContainer.style.marginTop = "10px";
-            messageContainer.style.padding = "10px";
-            messageContainer.style.textAlign = "center";
-            form.appendChild(messageContainer);
-
-            function updateMessage(text, isError = false) {
-                messageContainer.textContent = text;
-                messageContainer.style.color = isError ? "red" : "green";
-            }
+            const progressBar = document.querySelector(".progress-bar");
+            const progressSteps = document.querySelectorAll(".progress-step");
+            const messageContainer = document.getElementById("form-message");
+            let isSubmitting = false;
 
             function updateProgressBar() {
-                let progress = ((currentIndex + 1) / totalSlides) * 100;
+                // Calculate progress
+                const progress = ((currentIndex + 1) / totalSlides) * 100;
                 progressBar.style.width = `${progress}%`;
+                
+                // Update step labels
+                progressSteps.forEach((step, index) => {
+                    if (index <= currentIndex) {
+                        step.classList.add("active");
+                    } else {
+                        step.classList.remove("active");
+                    }
+                });
+            }
+
+            function showMessage(text, type = "error") {
+                messageContainer.textContent = text;
+                messageContainer.className = "message-container";
+                messageContainer.classList.add(`${type}-message`);
+                messageContainer.style.display = "block";
+                
+                // Hide message after 5 seconds if it's not a loading message
+                if (type !== "loading") {
+                    setTimeout(() => {
+                        messageContainer.style.display = "none";
+                    }, 5000);
+                }
+            }
+
+            function hideMessage() {
+                messageContainer.style.display = "none";
+            }
+
+            function validateInput() {
+                const currentSlide = slides[currentIndex];
+                const input = currentSlide.querySelector(".inp-style[required]");
+                
+                if (input) {
+                    if (!input.value.trim()) {
+                        showMessage("Please fill this field", "error");
+                        return false;
+                    }
+                    
+                    // Email validation
+                    if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+                        showMessage("Please enter a valid email address", "error");
+                        return false;
+                    }
+                    
+                    // Phone validation (simple check for at least 6 digits)
+                    if (input.type === "tel" && !/^[\d\s\-+]{6,}$/.test(input.value)) {
+                        showMessage("Please enter a valid phone number", "error");
+                        return false;
+                    }
+                }
+                
+                hideMessage();
+                return true;
             }
 
             function updateSlider() {
@@ -314,37 +397,32 @@
                 updateProgressBar();
             }
 
-            function validateInput() {
-                const input = slides[currentIndex].querySelector(".inp-style[required]");
-                if (input && !input.value.trim()) {
-                    updateMessage("Please fill this field", true);
-                    return false;
-                }
-                return true;
-            }
-
-            nextBtn.addEventListener("click", () => {
+            function nextSlide() {
                 if (validateInput() && currentIndex < totalSlides - 1) {
                     currentIndex++;
                     updateSlider();
-                    updateMessage(""); // Clear message
                 }
-            });
+            }
 
-            prevBtn.addEventListener("click", () => {
+            function prevSlide() {
                 if (currentIndex > 0) {
                     currentIndex--;
                     updateSlider();
-                    updateMessage(""); // Clear message
+                    hideMessage();
                 }
-            });
+            }
+
+            // Make functions global for button onclick events
+            window.nextSlide = nextSlide;
+            window.prevSlide = prevSlide;
 
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
-                if (isSubmitting) return; // Prevent multiple submissions
+                if (isSubmitting) return;
+                
                 isSubmitting = true;
-                submitBtn.disabled = true; // Disable submit button
-                updateMessage("Submitting form...");
+                submitBtn.disabled = true;
+                showMessage("Submitting form...", "loading");
 
                 let formData = new FormData(form);
                 let data = {};
@@ -357,24 +435,24 @@
                     headers: { "Content-Type": "application/json" }
                 })
                     .then(() => {
-                        updateMessage("Form submitted successfully!");
-                        form.reset(); // Reset the form fields
-                        currentIndex = 0; // Reset to first slide
+                        showMessage("Form submitted successfully!", "success");
+                        form.reset();
+                        currentIndex = 0;
                         updateSlider();
                     })
                     .catch(error => {
-                        updateMessage("Error: " + error, true);
+                        showMessage("Error submitting form. Please try again.", "error");
+                        console.error("Submission error:", error);
                     })
                     .finally(() => {
                         isSubmitting = false;
-                        submitBtn.disabled = false; // Re-enable submit button after submission
+                        submitBtn.disabled = false;
                     });
             });
 
+            // Initialize
             updateSlider();
         });
-
     </script>
 </body>
-
 </html>
