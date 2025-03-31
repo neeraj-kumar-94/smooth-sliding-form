@@ -193,7 +193,15 @@
         }
         
         /* Message styles */
+        .msg-box{
+            position: relative;
+        }
+
         .message-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             margin-top: 20px;
             padding: 15px;
             border-radius: 5px;
@@ -202,6 +210,7 @@
             text-align: center;
             display: none;
         }
+        
         
         .error-message {
             background-color: #FFEBEE;
@@ -242,21 +251,27 @@
         <div class="form-inner-section">
             <!-- Progress Bar -->
             <div class="progress-container">
-                <div class="progress-labels">
+                <!-- <div class="progress-labels">
                     <span class="progress-step active">Name</span>
                     <span class="progress-step">Email</span>
                     <span class="progress-step">Phone</span>
                     <span class="progress-step">Message</span>
                     <span class="progress-step">Gender</span>
                     <span class="progress-step">Submit</span>
-                </div>
+                </div> -->
                 <div class="progress-bar-container">
                     <div class="progress-bar"></div>
                 </div>
             </div>
             
             <!-- Message Container -->
-            <div id="form-message" class="message-container"></div>
+            <!-- <div id="form-message" class="message-container"></div> -->
+
+            <!-- Message Container -->
+             <div class="msg-box">
+                <div id="form-message" class="message-container"></div>
+             </div>
+            
             
             <!-- Form -->
             <form id="contactForm">
