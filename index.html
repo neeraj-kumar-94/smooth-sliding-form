@@ -4,100 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey form</title> 
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <div class="form-section">
-        <div class="form-inner-section">
+    <div class="survey-form-section">
+        <div class="survey-form-inner-section">
             <!-- Progress Bar -->
-            <div class="progress-container">
-                <div class="progress-bar-container">
-                    <div class="progress-bar"></div>
+            <div class="survey-progress-container">
+                <div class="survey-progress-bar-container">
+                    <div class="survey-default-progress-bar"> </div>
                 </div>
             </div>
 
             <!-- Message Container -->
-            <div id="form-message" class="message-container"></div>
+            <div id="survey-form-message" class="survey-message-container"></div>
 
             <!-- Form -->
-            <form id="contactForm">
-                <div class="slides">
-                    <div class="slide active">
-                        <div class="form-field-image">
-                            <div class="form-field">
-                                <label class="lable-style" for="full-name">Name:</label>
-                                <input type="text" id="full-name" class="inp-style" name="full-name" placeholder="Name"
-                                    required>
+            <form id="survey-contactForm">
+                <div class="survey-slides">
+                    <div class="survey-slide active">
+                        <div class="survey-form-field-image">
+                            <div class="survey-form-field">
+                                <label class="survey-label-style" for="survey-full-name">Name:</label>
+                                <input type="text" id="survey-full-name" class="survey-inp-style" name="full-name"
+                                    placeholder="Name" required>
                             </div>
-                            <div class="form-image">
+                            <div class="survey-form-image">
                                 <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nfGVufDB8fDB8fHww"
                                     alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="form-field-image">
-                            <div class="form-field">
-                                <label class="lable-style" for="email">Email:</label>
-                                <input type="email" id="email" class="inp-style" name="email" placeholder="Email"
-                                    required>
+                    <div class="survey-slide">
+                        <div class="survey-form-field-image">
+                            <div class="survey-form-field">
+                                <label class="survey-label-style" for="survey-email">Email:</label>
+                                <input type="email" id="survey-email" class="survey-inp-style" name="email"
+                                    placeholder="Email" required>
                             </div>
-                            <div class="form-image">
+                            <div class="survey-form-image">
                                 <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nfGVufDB8fDB8fHww"
                                     alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="form-field-image">
-                            <div class="form-field">
-                                <label class="lable-style" for="tel">Telephone:</label>
-                                <input type="tel" id="tel" class="inp-style" name="tel" placeholder="Telephone"
-                                    required>
+                    <div class="survey-slide">
+                        <div class="survey-form-field-image">
+                            <div class="survey-form-field">
+                                <label class="survey-label-style" for="survey-tel">Telephone:</label>
+                                <input type="tel" id="survey-tel" class="survey-inp-style" name="tel"
+                                    placeholder="Telephone" required>
                             </div>
-                            <div class="form-image">
+                            <div class="survey-form-image">
                                 <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nfGVufDB8fDB8fHww"
                                     alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="form-field-image">
-                            <div class="form-field">
-                                <label class="lable-style" for="message">Message:</label>
-                                <textarea id="message" class="inp-style" name="message"
+                    <div class="survey-slide">
+                        <div class="survey-form-field-image">
+                            <div class="survey-form-field">
+                                <label class="survey-label-style" for="survey-message">Message:</label>
+                                <textarea id="survey-message" class="survey-inp-style" name="message"
                                     placeholder="Message"></textarea>
                             </div>
-                            <div class="form-image">
+                            <div class="survey-form-image">
                                 <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nfGVufDB8fDB8fHww"
                                     alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="form-field-image">
-                            <div class="form-field">
-                                <label class="lable-style">Choose your gender:</label>
-                                <div class="radio-btn-label">
-                                    <input type="radio" id="male" name="gender" value="male" required>
-                                    <label for="male">Male</label>
+                    <div class="survey-slide">
+                        <div class="survey-form-field-image">
+                            <div class="survey-form-field">
+                                <label class="survey-label-style">Choose your gender:</label>
+                                <div class="survey-radio-btn-label">
+                                    <input type="radio" id="survey-male" name="gender" value="male" required>
+                                    <label for="survey-male">Male</label>
                                 </div>
-                                <div class="radio-btn-label">
-                                    <input type="radio" id="female" name="gender" value="female">
-                                    <label for="female">Female</label>
+                                <div class="survey-radio-btn-label">
+                                    <input type="radio" id="survey-female" name="gender" value="female">
+                                    <label for="survey-female">Female</label>
                                 </div>
-                                <div class="form-sub-btn">
-                                    <button class="form-btns" type="submit" id="submitBtn">Submit</button>
+                                <div class="survey-form-sub-btn">
+                                    <button class="survey-form-btns" type="submit" id="survey-submitBtn">Submit</button>
                                 </div>
                             </div>
-                            <div class="form-image">
+                            <div class="survey-form-image">
                                 <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nfGVufDB8fDB8fHww"
                                     alt="">
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </form>
@@ -105,19 +104,19 @@
     </div>
 
     <!-- Next and Previous buttons -->
-    <div class="buttons">
-        <div class="prev-btn">
-            <button class="form-btns" id="prevBtn" style="display: none;">Previous</button>
+    <div class="survey-buttons">
+        <div class="survey-prev-btn">
+            <button class="survey-form-btns" id="survey-prevBtn" style="display: none;">Previous</button>
         </div>
-        <div class="next-btn">
-            <button class="form-btns" id="nextBtn">Next</button>
+        <div class="survey-next-btn">
+            <button class="survey-form-btns" id="survey-nextBtn">Next</button>
         </div>
     </div>
 
-    
-    <!-- Js file -->
-     <script src="script.js"></script>
 
+
+    <!-- Js file -->
+    <script src="script.js"></script>
 </body>
 
 </html>

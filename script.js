@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
+    const slides = document.querySelectorAll(".survey-slide");
     const totalSlides = slides.length;
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const form = document.getElementById("contactForm");
-    const submitBtn = document.getElementById("submitBtn");
-    const progressBar = document.querySelector(".progress-bar");
-    const messageContainer = document.getElementById("form-message");
+    const prevBtn = document.getElementById("survey-prevBtn");
+    const nextBtn = document.getElementById("survey-nextBtn");
+    const form = document.getElementById("survey-contactForm");
+    const submitBtn = document.getElementById("survey-submitBtn");
+    const progressBar = document.querySelector(".survey-default-progress-bar");
+    const messageContainer = document.getElementById("survey-form-message");
     let isSubmitting = false;
 
     // Prevent form submission on Enter key press except for submit button
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showMessage(text, type = "error") {
         messageContainer.textContent = text;
-        messageContainer.className = "message-container";
-        messageContainer.classList.add(`${type}-message`);
+        messageContainer.className = "survey-message-container";
+        messageContainer.classList.add(`survey-${type}-message`);
         messageContainer.style.display = "block";
 
         if (type !== "loading") {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function validateCurrentSlide() {
         const currentSlide = slides[currentIndex];
-        const inputs = currentSlide.querySelectorAll(".inp-style[required], input[type='radio'][required]");
+        const inputs = currentSlide.querySelectorAll(".survey-inp-style[required], input[type='radio'][required]");
 
         for (const input of inputs) {
             if (input.type === 'radio') {
