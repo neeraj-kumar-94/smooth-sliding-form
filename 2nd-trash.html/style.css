@@ -3,8 +3,8 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
+        
+        body{
             padding: 100px 0;
         }
 
@@ -15,13 +15,13 @@
             margin: 0 auto 30px;
             position: relative;
         }
-
+        
         .progress-labels {
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
         }
-
+        
         .progress-bar-container {
             width: 100%;
             height: 8px;
@@ -36,13 +36,13 @@
             background: #5D3E31;
             transition: width 0.3s ease-in-out;
         }
-
+        
         .progress-step {
             font-family: 'Source Sans Pro', sans-serif;
             color: #7D5C4E;
             font-weight: 600;
         }
-
+        
         .progress-step.active {
             color: #5D3E31;
             font-weight: 700;
@@ -77,7 +77,6 @@
         .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%;
         }
 
         .slide {
@@ -88,43 +87,33 @@
             background-image: url(./project/survey-form-bg-img.webp);
             background-size: cover;
             background-repeat: no-repeat;
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .slide.active {
-            display: inline-block;
-            position: relative;
         }
 
         .form-field-image {
             height: 100%;
             column-gap: 20px;
-            display: flex;
+            display: flex;  
             align-items: center;
             justify-content: space-around;
         }
 
-        .form-field {
+        .form-field{
             width: 50%;
         }
 
-        .form-image {
-            position: relative;
+        .form-image{
+            position: relative; 
             width: 350px;
             height: 350px;
             border-radius: 8px;
             overflow: hidden;
         }
 
-        .form-image img {
+        .form-image img{
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
+        } 
 
         .radio-btn-label {
             display: flex;
@@ -144,7 +133,7 @@
             margin: 0 auto;
             padding: 0 80px;
         }
-
+        
         .prev-btn {
             position: absolute;
             left: 0px;
@@ -220,8 +209,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        
+        /* Message styles */ 
 
-        /* Message styles */
         .message-container {
             margin-top: 20px;
             padding: 15px;
@@ -231,19 +221,20 @@
             text-align: center;
             display: none;
         }
-
+        
+        
         .error-message {
             background-color: #FFEBEE;
             color: #C62828;
             border: 1px solid #EF9A9A;
         }
-
+        
         .success-message {
             background-color: #E8F5E9;
             color: #2E7D32;
             border: 1px solid #A5D6A7;
         }
-
+        
         .loading-message {
             background-color: #E3F2FD;
             color: #1565C0;
@@ -254,7 +245,7 @@
             .form-section {
                 padding: 0px;
             }
-
+ 
             .slide {
                 padding: 24px;
             }
@@ -264,23 +255,22 @@
                 max-width: 1280px;
                 margin: 0 auto 30px;
                 position: relative;
-                padding: 0 20px;
-                ;
+                padding: 0 20px;;
             }
 
             .form-field-image {
-                display: flex;
+                display: flex;  
                 align-items: center;
                 justify-content: space-between;
                 flex-direction: column-reverse;
             }
 
-            .form-field {
+            .form-field{
                 width: 100%;
             }
 
-            .form-image {
-                position: relative;
+            .form-image{
+                position: relative; 
                 width: 200px;
                 height: 200px;
                 row-gap: 20px;
